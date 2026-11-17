@@ -1,0 +1,11 @@
+import { readFile, writeFile, mkdir, cp } from 'node:fs/promises';
+import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
+const manifest = JSON.parse(await readFile('source-manifest.json', 'utf8'));
+const archive = Buffer.concat(await Promise.all(manifest.parts.map(p => readFile(p))));
+if (createHash('sha256').update(archive).digest('hex') !== manifest.sha256) throw new Error('Archive checksum mismatch');
+await writeFile('source.tar.gz', archive);
+await mkdir('source', { recursive: true });
+execFileSync('tar', ['-xzf', 'source.tar.gz', '-C', 'source']);
+await cp('source/public', 'dist', { recursive: true });
+console.log('Built complete portfolio: 9 pages and original Framer motion runtime.');

@@ -1,0 +1,17 @@
+{
+  "parts": [
+    "source.tar.gz.part00",
+    "source.tar.gz.part01",
+    "source.tar.gz.part02",
+    "source.tar.gz.part03",
+    "source.tar.gz.part04",
+    "source.tar.gz.part05",
+    "source.tar.gz.part06",
+    "source.tar.gz.part07",
+    "source.tar.gz.part08",
+    "source.tar.gz.part09",
+    "source.tar.gz.part10"
+  ],
+  "sha256": "5a258594903e2bfdfd840c23c4330a570133eeeb6658d5c9500cdde51436a760",
+  "bytes": 43643140
+}
